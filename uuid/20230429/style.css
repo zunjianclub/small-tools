@@ -1,0 +1,76 @@
+//遵简联盟出品，官网：https://www.zunjian.top/
+* {
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.container {
+	margin: 50px auto;
+	max-width: 600px;
+	padding: 20px;
+	background-color: #f2f2f2;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px #ccc;
+}
+.form-group {
+	margin-bottom: 20px;
+}
+.form-control {
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	background-color: #e6e6e6;
+}
+.button-group {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+.generate-btn {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.copy-btn {
+	background-color: #008CBA;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.uuids-group {
+	margin-bottom: 20px;
+}
+.uuids-text {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.uuid {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #e6e6e6;
+	border-radius: 5px;
+}
+.uuid-text {
+	flex-grow: 1;
+}
+.copy-uuid {
+	background-color: #008CBA;
+	color: white;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+@media (max-width: 600px) {
+  .container {
+    max-width: 100%;
+  }
+}

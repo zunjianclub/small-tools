@@ -1,0 +1,57 @@
+//遵简联盟出品，官网：https://www.zunjian.top/
+<!DOCTYPE html>
+<html>
+<head>
+	<title>UUID Generator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>UUID生成器</h1>
+		<div class="form-group">
+			<label for="num">生成数量：</label>
+			<input type="number" id="num" name="num" min="1" max="100" class="form-control" value="10">
+		</div>
+		<div class="button-group">
+			<button onclick="generateUUID()" class="btn generate-btn">开始生成</button>
+			<button onclick="copyAll()" class="btn copy-btn">全部复制</button>
+		</div>
+		<div class="uuids-group">
+			<p class="uuids-text">生成列表:</p>
+			<div id="uuids" class="uuids"></div>
+		</div>
+	</div>
+	<script>
+		function generateUUID() {
+			var num = document.getElementById("num").value;
+			var uuids = "";
+			for (var i = 0; i < num; i++) {
+				var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+				    var r = Math.random() * 16 | 0,
+				        v = c == 'x' ? r : (r & 0x3 | 0x8);
+				    return v.toString(16);
+				});
+				uuids += `<div class="uuid">
+								<p class="uuid-text">${uuid}</p>
+								<button class='btn copy-uuid' data-clipboard-text='${uuid}'>复制</button>
+							</div>`;
+			}
+			document.getElementById("uuids").innerHTML = uuids;
+			new ClipboardJS('.copy-uuid');
+		}
+		
+		function copyAll() {
+			var uuids = document.getElementById("uuids").innerText;
+			var temp = document.createElement("textarea");
+			temp.value = uuids;
+			document.body.appendChild(temp);
+			temp.select();
+			document.execCommand("copy");
+			document.body.removeChild(temp);
+			alert("复制成功");
+		}
+	</script>
+</body>
+</html>
